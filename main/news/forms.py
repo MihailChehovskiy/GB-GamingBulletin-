@@ -1,5 +1,7 @@
 from .models import publications
+from django import forms
 from django.forms import ModelForm, TextInput, Textarea
+from .models import News
 
 
 class publicationsform(ModelForm):
@@ -16,3 +18,9 @@ class publicationsform(ModelForm):
                 'placeholder': 'Пишите тут'
             }),
         }
+
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = 'title', 'description', 'category', 'image'
